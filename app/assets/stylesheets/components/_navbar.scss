@@ -1,12 +1,23 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
   background: white;
+  padding: 0.3rem 1rem;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse  {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-brand img {
+  margin-top: -5px;
   width: 40px;
+}
+
+.buddy-info {
+  color: black;
+  opacity: 0.5;
+}
+
+.show {
+  right: auto
 }
