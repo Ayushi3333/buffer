@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 class="text-center my-5">Become a buddy</h2>
+  <div class="row d-flex justify-content-center my-5">
+  
+    <div class="col-12">
+        <div class="w-25 m-auto">
+          <%= simple_form_for(@buddy) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit 'Create your profile', class: 'btn btn-primary rounded' %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
