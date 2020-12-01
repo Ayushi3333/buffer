@@ -1,5 +1,6 @@
 class Buddy < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
 
   def self.search(search)
     if search
