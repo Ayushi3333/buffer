@@ -5,13 +5,12 @@
           <%= text_field_tag(:search, params[:search], class: 'form-control') %>
           <%= submit_tag ("Search"), class: "btn btn-outline-primary" %>
         <% end %>
-        <%= link_to 'add new buddy', new_buddy_path, class: 'btn btn-primary ml-2' %>
       </div>
   </div>
   <div class="row d-flex justify-content-around">
   <% @buddies.each do |buddy| %>
     <div class="card-product col-sm-12 col-md-5 col-lg-3 m-2 p-0">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= show_buddy_photo(buddy) %>
       <div class="card-product-infos">
         <h2><%= buddy.name %></h2>
         <p><%= buddy.description %></p>
