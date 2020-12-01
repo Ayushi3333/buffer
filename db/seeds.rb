@@ -10,7 +10,7 @@
 require 'faker'
 
 user = User.create!({
-  email: "test@email.come",
+  email: "test@email.com",
   password: "123456"
 })
 
