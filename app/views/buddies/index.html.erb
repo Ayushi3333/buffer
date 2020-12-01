@@ -11,7 +11,7 @@
   <div class="row d-flex justify-content-around">
   <% @buddies.each do |buddy| %>
     <div class="card-product col-sm-12 col-md-5 col-lg-3 m-2 p-0">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= cl_image_tag buddy.photo.key, height: 300, width: 400, crop: :fill  %>
       <div class="card-product-infos">
         <h2><%= buddy.name %></h2>
         <p><%= buddy.description %></p>

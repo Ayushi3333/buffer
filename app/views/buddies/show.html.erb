@@ -1,0 +1,83 @@
+<%# Main container  %>
+<div class="container">
+
+<%# First row to insert the title of the show page %>
+  <div class="row">
+    <div class="col-12 d-flex justify-content">
+        <div>
+          <h1 class="list-group-item-heading"><%= @buddy.name %> </h1>
+          <h2 class="list-group-item-text"> Your buffer for tonight  </h2>
+        </div>
+        <div>
+          <i class="fas fa-cloud"></i>
+        </div>
+    </div>
+  </div>
+
+<%# row 12 columns to show the carrousse or main picture of the buddy%>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center mt-5 mb-5">
+        <%# Inserting the picture %>
+       <% if @buddy.photo.attached? %>
+          <%= cl_image_tag @buddy.photo.key, :width=>150, :crop=>"fit" %>
+       <% end %>
+    </div>
+  </div>
+
+<%# Main row for the description and the booking method %>
+  <div class="row">
+
+<%# Column for the description box %>
+    <div class="col-9 bg-light pb-2 pt-2"> 
+      <div class="d-flex justify-content-around border-bottom mt-2 pb-2">
+        <div>
+          <h1 class="list-group-item-heading"><%= @buddy.name %> </h1>
+          <h2 class="list-group-item-text"> Tags: Social  - Good Driver - Funny - Hansdome </h2>
+        </div>
+        <div class="align-self-center">
+          <i class="fas fa-cloud"></i>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content mt-4">
+          <div class="align-self-center mr-4 ml-2">
+            <i class="fas fa-cloud "></i>
+          </div>
+          <div class="pt-2 pb-2">
+            <h3><%= @buddy.name %> </h3>
+            <p><%= @buddy.description %> </p>
+            <p><%= @buddy.description %> </p>
+          </div>        
+      </div>
+
+      <div class="d-flex justify-content mt-4 border-bottom mt-2 pb-2">
+          <div class="align-self-center mr-4 ml-2">
+            <i class="fas fa-cloud "></i>
+          </div>
+          <div class="pt-2 pb-2">
+            <h3><%= @buddy.name %> </h3>
+            <p><%= @buddy.description %> </p>
+            <p><%= @buddy.description %> </p>
+          </div>        
+      </div>
+    </div>
+
+<%# Column for the booking box %>
+    <div class="col-3 d-flex justify-content-center mt-5 mb-5">
+      <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Book now!</a>
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
