@@ -14,6 +14,13 @@
       <div class="card-product-infos">
         <%= link_to buddy.name, 'buddy_path', class: 'h5 text-secondary' %>
         <p><%= buddy.description %></p>
+        
+        <div class="d-flex justify-content-start flex-wrap">
+          <% buddy.tags.each do |tag| %>
+            <h6><span class="badge badge-secondary mx-1"><%= tag %></span></h6>
+          <% end %>
+        </div>
+        
       </div>
     </div>
   <% end %>

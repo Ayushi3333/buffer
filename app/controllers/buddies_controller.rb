@@ -20,6 +20,6 @@ class BuddiesController < ApplicationController
   private
 
   def buddies_params
-    params.require(:buddy).permit(:name, :description, :photo)
+    params.require(:buddy).permit(:name, :description, :photo, tags: [])
   end
 end

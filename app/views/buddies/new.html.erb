@@ -8,6 +8,8 @@
             <%= f.input :name %>
             <%= f.input :description %>
             <%= f.input :photo, as: :file %>
+            <%= f.input :tags, as: :check_boxes, collection: ["one", "twon", "three", "four", "five", "six", "seven", "eight"], input_html: { multiple: true } %>
+
             <%= f.submit 'Create your profile', class: 'btn btn-primary rounded' %>
           <% end %>
         </div>
