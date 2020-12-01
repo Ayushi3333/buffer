@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="w-75 m-auto d-flex justify-content-center py-5">
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+  <div class="row d-flex justify-content-around">
+  <% @buddies.each do |buddy| %>
+    <div class="card-product col-sm-12 col-md-5 col-lg-3 m-2 p-0">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= buddy.name %></h2>
+        <p><%= buddy.description %></p>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
