@@ -3,6 +3,8 @@ class Buddy < ApplicationRecord
   has_one_attached :photo
   validates :name, :description, :photo, presence: true
   before_save :reject_empty
+  monetize :price_cents
+
   def self.search(search)
     if search
       @buddies = Buddy.where("name LIKE '%#{search}%'")
