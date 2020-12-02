@@ -65,12 +65,15 @@
 
 .footer {
   background: #F4F4F4;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position: fixed;
+  bottom: 0;
 }
 .footer-links {
   display: flex;
@@ -88,4 +91,8 @@
 }
 .footer .fa-heart {
   color: #FF047D;
+}
+
+.logout-margin {
+  margin-left: 20px !important;
 }
