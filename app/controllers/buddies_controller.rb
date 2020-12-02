@@ -2,6 +2,12 @@ class BuddiesController < ApplicationController
   def index
       @buddies = Buddy.search(params[:search])
   end
+
+  def show
+    @buddy = Buddy.find(params[:id])
+  end
+
+  
   def new
     @buddy = Buddy.new
   end
@@ -18,7 +24,7 @@ class BuddiesController < ApplicationController
   end
 
   private
-
+  
   def buddies_params
     params.require(:buddy).permit(:name, :description, :photo, tags: [])
   end
