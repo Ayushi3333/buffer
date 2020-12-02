@@ -8,23 +8,3 @@
   border-radius: 5px;
 }
 
-input.check_boxes {
-  display: none;
-}
-
-.check_boxes{
-  display: flex;
-  justify-content: space-around;
-}
-
-label.collection_check_boxes {
-  float: none;
-  margin: 0;
-  vertical-align: -2px;
-  margin: 5px 0;
-  border-radius: 5px;
-  color: white;
-  display: inline;
-  padding: 10px 20px;
-  background: $primary;
-}

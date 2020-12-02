@@ -2,17 +2,19 @@
   <h2 class="text-center my-5">Become a buddy</h2>
   <div class="row d-flex justify-content-center my-5">
   
-    <div class="col-12">
-        <div class="w-25 m-auto">
+    <div class="col-8">
+        <div class="w-50 m-auto">
           <%= simple_form_for(@buddy) do |f| %>
             <%= f.input :name %>
             <%= f.input :description %>
             <%= f.input :photo, as: :file %>
-            <%= f.input :tags, as: :check_boxes, collection: ["one", "twon", "three", "four", "five", "six", "seven", "eight"], input_html: { multiple: true } %>
+            <%= f.input :tags, as: :check_boxes, collection: ["Diplomatic", 'Shredded', 'Possessive', 'Motherly', ' Comforting', 'Tough love', 'Social', 'Memory', 'Designated driver', 'Wing Man' ], input_html: { multiple: true } %>
 
             <%= f.submit 'Create your profile', class: 'btn btn-primary rounded' %>
           <% end %>
         </div>
     </div>
+
+    <img class="col-4" src="https://previews.123rf.com/images/file404/file4041302/file404130200136/17954793-friends-illustration.jpg" alt="friends cartoon">
   </div>
 </div>
