@@ -1,7 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="col-12 my-5">
-    <h2>This are all the buddies</h2>
-    <%= link_to 'Back home', '/', class: 'h5 text-secondary' %>
+    <h2>List of buddies</h2>
   </div>
   <div class="w-75 m-auto d-flex justify-content-center py-5">
        <div class="d-flex">
@@ -11,22 +10,27 @@
         <% end %>
       </div>
   </div>
+
   <div class="row d-flex justify-content-around">
-  <% @buddies.each do |buddy| %>
-    <div class="card-product col-sm-12 col-md-5 col-lg-4 m-2 p-0">
-      <%= show_buddy_photo(buddy) %>
-      <div class="card-product-infos">
-        <%= link_to buddy.name, 'buddy_path', class: 'h5 text-secondary' %>
-        <p><%= buddy.description %></p>
-        
-        <div class="d-flex justify-content-start flex-wrap align-items-end">
-          <% buddy.tags.each do |tag| %>
-            <h6><span class="badge badge-secondary mx-1"><%= tag %></span></h6>
-          <% end %>
+  <div class="w-50 d-flex justify-content-around">
+    <% @buddies.each do |buddy| %>
+      <div class="card-product col-lg-6 m-3 p-0">
+        <%= show_buddy_photo(buddy) %>
+        <div class="card-product-info">
+          <%= link_to buddy.name, 'buddy_path/:id', class: 'h5 text-secondary' %>
+          <p><%= buddy.description %></p>
+          <div class="d-flex justify-content-start flex-wrap align-items-end">
+            <% buddy.tags.each do |tag| %>
+              <h6><span class="badge badge-secondary mx-1"><%= tag %></span></h6>
+            <% end %>
+          </div>
         </div>
-        
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="map">
+    <img class="rounded" src="https://www.google.com/maps/d/thumbnail?mid=1zG0EOdNTSZrETHd6pAm5SP0s8wY&hl=en" alt="">
+  </div>
+ 
   </div>
 </div>
