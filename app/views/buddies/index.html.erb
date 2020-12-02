@@ -13,7 +13,6 @@
   </div>
 
   <div class="row d-flex justify-content-around">
-<<<<<<< HEAD
     <div class="d-flex flex-wrap justify-content-around col-12">
       <% @buddies.each do |buddy| %>
         <div class="card-product w-50 m-3">
@@ -30,15 +29,6 @@
           </div>
         </div>
       <% end %>
-=======
-  <% @buddies.each do |buddy| %>
-    <div class="card-product col-sm-12 col-md-5 col-lg-3 m-2 p-0">
-      <%= show_buddy_photo(buddy) %>
-      <div class="card-product-infos">
-        <%= link_to buddy.name, 'buddy_path', class: 'h5 text-secondary' %>
-        <p><%= buddy.description %></p>
-      </div>
->>>>>>> 4f13b1dbcb93119d627817112591c5442fc779aa
     </div>
   </div>
 
