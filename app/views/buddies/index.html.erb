@@ -13,6 +13,7 @@
       <%= show_buddy_photo(buddy) %>
       <div class="card-product-infos">
         <%= link_to buddy.name, 'buddy_path', class: 'h5 text-secondary' %>
+        <p><%= buddy.price_cents %>€</p>
         <p><%= buddy.description %></p>
       </div>
     </div>

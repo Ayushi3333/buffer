@@ -1,7 +1,8 @@
 class Buddy < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
-
+  monetize :price_cents
+  
   def self.search(search)
     if search
       @buddies = Buddy.where("name LIKE '%#{search}%'")
