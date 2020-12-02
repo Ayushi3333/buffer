@@ -11,8 +11,8 @@
 
   <div class="show-body d-flex justify-content-between mt-5">
     <div class="description-box ">
-        <h1 class="list-group-item-heading"><%= @buddy.name %> </h1>
-        <h2 class="list-group-item-text border-bottom "> <%=@buddy.description  %> </h2>
+        <h2><%= @buddy.name %> </h2>
+        <h4 class="border-bottom "> <%=@buddy.description  %> </h4>
         <% @buddy.tags.each do |tag| %>
         <div class="my-5 ">
           <h3><%= tag %></h3>
@@ -24,8 +24,9 @@
     </div>
     <div class="booking-box">
       <div class="card text-center">
+       <h1 class="pt-3"><%=  @buddy.price_cents %> €</h1>
         <div class="card-header">
-          BOOK IT NOW
+          Available
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= @buddy.name  %></h5>

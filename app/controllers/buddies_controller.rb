@@ -26,6 +26,6 @@ class BuddiesController < ApplicationController
   private
   
   def buddies_params
-    params.require(:buddy).permit(:name, :description, :photo, tags: [])
+    params.require(:buddy).permit(:name, :description, :photo, :price_cents, tags: [])
   end
 end
