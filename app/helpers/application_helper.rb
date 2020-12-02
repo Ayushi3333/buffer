@@ -6,4 +6,10 @@ module ApplicationHelper
       image_tag('placeholder.jpg')
     end
   end
+
+  def tag_method(buddy)
+    buddy.tags.each do |tag|
+      
+    end
+  end
 end
