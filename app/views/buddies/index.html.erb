@@ -13,11 +13,11 @@
   </div>
 
   <div class="row d-flex justify-content-around">
-    <div class="w-50 d-flex justify-content-around">
+    <div class="d-flex flex-wrap justify-content-around col-12">
       <% @buddies.each do |buddy| %>
-        <div class="card-product col-lg-6 m-3 p-0">
+        <div class="card-product w-50 m-3">
           <%= show_buddy_photo(buddy) %>
-          <div class="card-product-info">
+          <div class="card-product-info px-2">
             <%= link_to buddy.name, buddy_path(buddy), class: 'h5 text-secondary' %>
             <p><%= buddy.description %></p>
             <p><%= buddy.price_cents %>€</p>
@@ -30,9 +30,7 @@
         </div>
       <% end %>
     </div>
-  
-    <div class="map">
-      <img class="rounded" src="https://www.google.com/maps/d/thumbnail?mid=1zG0EOdNTSZrETHd6pAm5SP0s8wY&hl=en" alt="">
-    </div>
   </div>
+
 </div>
+  
