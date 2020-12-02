@@ -65,7 +65,7 @@
 
 .footer {
   background: #F4F4F4;
-  width: 100vw;
+  min-width: fit-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
