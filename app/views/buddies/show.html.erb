@@ -5,11 +5,11 @@
   <div class="row">
     <div class="col-12 d-flex justify-content">
         <div>
-          <h1 class="list-group-item-heading"><%= @buddy.name %> </h1>
+          <h1 class="list-group-item-heading">Buffer </h1>
           <h2 class="list-group-item-text"> Your buffer for tonight  </h2>
         </div>
         <div>
-          <i class="fas fa-cloud"></i>
+          <i></i>
         </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
     <div class="col-12 d-flex justify-content-center mt-5 mb-5">
         <%# Inserting the picture %>
        <% if @buddy.photo.attached? %>
-          <%= cl_image_tag @buddy.photo.key, :width=>150, :crop=>"fit" %>
+          <%= cl_image_tag @buddy.photo.key %>
        <% end %>
     </div>
   </div>
@@ -32,7 +32,7 @@
       <div class="d-flex justify-content-around border-bottom mt-2 pb-2">
         <div>
           <h1 class="list-group-item-heading"><%= @buddy.name %> </h1>
-          <h2 class="list-group-item-text"> Tags: Social  - Good Driver - Funny - Hansdome </h2>
+          <h2 class="list-group-item-text"> <%=@buddy.description  %> </h2>
         </div>
         <div class="align-self-center">
           <i class="fas fa-cloud"></i>
@@ -63,18 +63,18 @@
     </div>
 
 <%# Column for the booking box %>
-    <div class="col-3 d-flex justify-content-center mt-5 mb-5">
+    <div class="col-3 d-flex justify-content-center pb-2">
       <div class="card text-center">
         <div class="card-header">
-          Featured
+          BOOK IT NOW
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title"><%= @buddy.name  %></h5>
+          <p class="card-text"><%= @buddy.description  %></p>
           <a href="#" class="btn btn-primary">Book now!</a>
         </div>
         <div class="card-footer text-muted">
-          2 days ago
+          Buffer is here for you
         </div>
       </div>
     </div>
