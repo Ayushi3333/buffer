@@ -4,8 +4,10 @@ class Buddy < ApplicationRecord
   validates :name, :description, presence: true
   before_save :reject_empty
   monetize :price_cents
+  has_many :bookings
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
 
   def self.search(search)
     if search

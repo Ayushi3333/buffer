@@ -14,19 +14,18 @@ class BuddiesController < ApplicationController
 
   def show
     @buddy = Buddy.find(params[:id])
+    @booking = Booking.new
     @markers = [{
         lat: @buddy.latitude,
         lng: @buddy.longitude
       }]
   end
 
-
   def new
     @buddy = Buddy.new
   end
 
   def create
-
     @buddy = Buddy.new(buddies_params)
     @buddy.user = current_user
     if @buddy.save
@@ -39,6 +38,6 @@ class BuddiesController < ApplicationController
   private
 
   def buddies_params
-    params.require(:buddy).permit(:name, :description, :address, :longitude, :latitude, :price_cents, photos: [], tags: [] )
+    params.require(:buddy).permit(:name, :description, :address, :longitude, :latitude, :price_cents, photos: [], tags: [], :user_id )
   end
 end

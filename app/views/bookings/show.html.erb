@@ -1,0 +1,20 @@
+<div class="container">
+  <%= link_to  "Back", buddy_path %>
+  <h1>Confirm and pay</h1>
+  <div class="show-body d-flex justify-content-between mt-5">
+      <div class="description-box" id="round-border">
+        <h2>Your booking</h2>
+         <h3>Dates</h3>
+         <p><%= @booking.start_date %> - <%= @booking.end_date %></p>
+         <h3>Booked for</h3>
+         <p><%= @booking.user.email %></p>
+      </div>
+      <div class="booking-box" id="booking-round">
+      <%= @booking.buddy.name %>
+      <%= cl_image_tag @booking.buddy.photo.key, height: 300, width: 400, crop: :fill %>
+      <h3>Price details</h3>
+      <p>Total amount</p>
+       <%= link_to '´Confirm', buddy_checkout_path(@booking) %>
+      </div>
+  </div>
+</div>
