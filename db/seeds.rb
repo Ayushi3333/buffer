@@ -18,9 +18,16 @@ user = User.create!({
     user_id: user.id,
     price_cents: rand(10..50)
     )
+  photo = []
     photo = URI.open('https://picsum.photos/200/300')
-    buddies.photo.attach(io: photo, filename: 'buddy-avatar.png')
+    photo_1 = URI.open('https://picsum.photos/200/300')
+    photo_2 = URI.open('https://picsum.photos/200/300')
+    photos << photo
+    photos << photo_1
+    photos << photo_2
+
+    buddies.photos.attach(io: photos, filename: 'buddy-avatar.png')
     buddies.save!
     puts "Finish seeding and created #{User.count} user & #{Buddy.count} buddies"
   end
-    
+
