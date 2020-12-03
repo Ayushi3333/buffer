@@ -1,10 +1,37 @@
 .description-box {
   flex-grow: 1;
   background-color: white;
-  padding: 35px;
+  padding: 20px;
   margin-right: 10px;
 }
 
 .show-body {
   font-family: Roboto, sans-serif;
+}
+
+.border-bottom {
+  padding-bottom: 10px;
+}
+
+#round-border {
+  border-radius: 7px;
+}
+
+#booking-round {
+  border-radius: 7px;
+}
+
+.carousel-image {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  border-radius: 10px;
+}
+
+.text-center {
+  border-radius: 7px;
 }

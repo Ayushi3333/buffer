@@ -1,10 +1,11 @@
 module ApplicationHelper
   def show_buddy_photo(buddy)
-    if buddy.photo.attached?
-       cl_image_tag buddy.photo.key, :height => 300, :class => "card-img-top"
-    else
-      image_tag('placeholder.jpg')
-    end
+    photo = buddy.photos.first
+      if photo
+        cl_image_tag photo.key, :height => 300, :class => "card-img-top"
+      else
+        image_tag('placeholder.jpg')
+      end
   end
 
   def show_buddy_photo_small(buddy)
@@ -17,7 +18,7 @@ module ApplicationHelper
 
   def tag_method(buddy)
     buddy.tags.each do |tag|
-      
+
     end
   end
 
@@ -45,5 +46,5 @@ module ApplicationHelper
       return "Someone that will help you get lucky, you will star in every circumstances!"
     end
   end
-  
+
 end

@@ -20,7 +20,7 @@ class BuddiesController < ApplicationController
       }]
   end
 
-  
+
   def new
     @buddy = Buddy.new
   end
@@ -37,8 +37,8 @@ class BuddiesController < ApplicationController
   end
 
   private
-  
+
   def buddies_params
-    params.require(:buddy).permit(:name, :description,:address, :longitude, :latitude, :photo, tags: [] )
+    params.require(:buddy).permit(:name, :description, :address, :longitude, :latitude, :price_cents, photos: [], tags: [] )
   end
 end
