@@ -2,3 +2,21 @@
 @import "home";
 @import "buddies_index";
 @import "show";
+
+
+
+.main-box {
+  flex-grow: 1;
+  background-color: white;
+
+}
+
+.mapboxgl-popup-content img {
+  object-fit: cover;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}

@@ -11,28 +11,38 @@
         <% end %>
       </div>
   </div>
-
-  <div class="row d-flex justify-content-around">
-    <div class="d-flex flex-wrap justify-content-around col-12">
-      <% @buddies.each do |buddy| %>
-        <div class="card-product w-50 m-3">
-          <%= show_buddy_photo(buddy) %>
-          <div class="card-product-info px-4">
-            <%= link_to buddy.name, buddy_path(buddy), class: 'h5 text-secondary' %>
-            <p class="pb-4"><%= buddy.description %></p>
-            <div class="d-flex justify-content-between flex-wrap align-items-end">
-              <div class="d-flex justify-content-start">
-              <% buddy.tags.each do |tag| %>
-                <h6><span class="badge badge-primary mx-1"><%= tag %></span></h6>
-              <% end %>
+  <div class="main-box d-flex">
+    <div class="card-box d-flex card">
+      <div class="d-flex flex-wrap justify-content-center">
+        <% @buddies.each do |buddy| %>
+          <div class="card-product w-75 m-3">
+            <%= show_buddy_photo(buddy) %>
+            <div class="card-product-info px-2 w-100">
+              <%= link_to buddy.name, buddy_path(buddy), class: 'h5 text-secondary' %>
+              <p class="w-100"><%= buddy.description %></p>
+              <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between flex-wrap align-items-end">
+                  <% buddy.tags.each do |tag| %>
+                    <h6><span class="badge badge-secondary mx-1"><%= tag %></span></h6>
+                  <% end %>
+                </div>
+                <div class="price">
+                  <p><%= buddy.price_cents %>€</p>
+                </div>
               </div>
-              <p><%= buddy.price_cents %>€</p>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+    <%# MapBox %>
+    <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map-box">
     </div>
   </div>
+    
 </div>
 
 
