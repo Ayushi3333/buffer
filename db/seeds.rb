@@ -16,6 +16,7 @@ user = User.create!({
     # photo: https://picsum.photos/200/300
     availability: true,
     user_id: user.id,
+    address: Faker::Address.full_address,
     price_cents: rand(10..50)
     )
     photo = URI.open('https://picsum.photos/200/300')

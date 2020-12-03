@@ -7,6 +7,14 @@ module ApplicationHelper
     end
   end
 
+  def show_buddy_photo_small(buddy)
+    if buddy.photo.attached?
+       cl_image_tag buddy.photo.key, :width => 150, :height => 150, :crop => "scale", :class => "card-img-top"
+    else
+      image_tag('placeholder.jpg')
+    end
+  end
+
   def tag_method(buddy)
     buddy.tags.each do |tag|
       

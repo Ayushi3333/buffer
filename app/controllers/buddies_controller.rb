@@ -1,10 +1,23 @@
 class BuddiesController < ApplicationController
   def index
-      @buddies = Buddy.search(params[:search])
+    @buddies = Buddy.search(params[:search])
+    @buddiesall = Buddy.all
+    @markers = @buddiesall.geocoded.map do |buddy|
+        {
+          lat: buddy.latitude,
+          lng: buddy.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { buddy: buddy }),
+          image_url: helpers.asset_url("https://i.imgur.com/SUfRG3j.png")
+      }
+      end
   end
 
   def show
     @buddy = Buddy.find(params[:id])
+    @markers = [{
+        lat: @buddy.latitude,
+        lng: @buddy.longitude
+      }]
   end
 
   
@@ -26,6 +39,6 @@ class BuddiesController < ApplicationController
   private
   
   def buddies_params
-    params.require(:buddy).permit(:name, :description, :photo, tags: [])
+    params.require(:buddy).permit(:name, :description,:address, :longitude, :latitude, :photo, tags: [] )
   end
 end

@@ -2,7 +2,7 @@
 <div class="container">
 <%# row 12 columns to show the carrousse or main picture of the buddy%>
     
-    <div class="bannerbuddy" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @buddy.photo.key, height: 300, width: 400, crop: :fill %>')">
+    <div class="bannerbuddy" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @buddy.photo.key %>')">
           <%# Inserting the picture %>
     </div>
     
@@ -42,4 +42,10 @@
   <div>
     <%= link_to "Go Back to results" , buddies_path %>
   </div>
+
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     
 </div>
