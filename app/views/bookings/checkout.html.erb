@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div>
+        <%= link_to "back to your buddy's page", buddies_path(@buddy) %>
+        <h2>You're hanging out with <span><%= @booking.buddy.name %></span> in <span><%=  %></span></h2>
+        <h3>Booked by <%= @booking.user %></h3>
+        <h3>Booked from "booking_date"</h3>
+      </div>
+      <img src="cloudinary" alt="image of buddy">
+      <div class="d-flex justify-content-between">
+        <div class="col-6 d-flex justify-content-between">
+          <div>
+            <div>
+              <h2>Check in</h2>
+              <p><%= @booking.start_date %></p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+            <div>
+              <h2>Check out</h2>
+              <p><%= @booking.end_date %></p>
+            </div>
+          </div>
+          <div>
+            <h1>Hanging out with <%= @booking.buddy.name %></h1>
+            <p><span>"buddy's tag"</span> -  "tag_description"</p>
+            <p><span>"buddy's tag"</span> -  "tag_description"</p>
+            <p><span>"buddy's tag"</span> -  "tag_description"</p>
+            <p><span>"buddy's tag"</span> -  "tag_description"</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div>
+            <h1>Charges</h1>
+            <div class="d-flex justify-content-between p-2">
+              <p>$100 x 2</p>
+              <p>$200</p>
+            </div>
+            <div class="d-flex justify-content-between p-2">
+              <p>Buffer's fee</p>
+              <p>$200</p>
+            </div>
+            <div class="d-flex justify-content-between p-2">
+              <p>Taxes</p>
+              <p>$40</p>
+            </div>
+            <div class="d-flex justify-content-between p-2">
+              <p>Discount</p>
+              <p>$0</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between p-2">
+            <h1>Total</h1>
+            <p>$240</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

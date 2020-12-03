@@ -5,15 +5,14 @@ class BuddiesController < ApplicationController
 
   def show
     @buddy = Buddy.find(params[:id])
+    @booking = Booking.new
   end
 
-  
   def new
     @buddy = Buddy.new
   end
 
   def create
-
     @buddy = Buddy.new(buddies_params)
     @buddy.user = current_user
     if @buddy.save
@@ -26,6 +25,6 @@ class BuddiesController < ApplicationController
   private
   
   def buddies_params
-    params.require(:buddy).permit(:name, :description, :photo, :price_cents, tags: [])
+    params.require(:buddy).permit(:name, :description, :photo, :price_cents, :user_id, tags: [])
   end
 end

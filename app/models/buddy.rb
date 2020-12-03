@@ -4,6 +4,7 @@ class Buddy < ApplicationRecord
   validates :name, :description, :photo, presence: true
   before_save :reject_empty
   monetize :price_cents
+  has_many :bookings
 
   def self.search(search)
     if search
