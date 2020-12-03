@@ -37,3 +37,10 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   loadDynamicBannerText();
 });
+
+// Import of te JS for MapBox 
+import { initMapbox } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})

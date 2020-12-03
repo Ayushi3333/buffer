@@ -1,10 +1,13 @@
 class Buddy < ApplicationRecord
   belongs_to :user
-  has_one_attached :photo
-  validates :name, :description, :photo, presence: true
+  has_many_attached :photos
+  validates :name, :description, presence: true
   before_save :reject_empty
   monetize :price_cents
   has_many :bookings
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
 
   def self.search(search)
     if search

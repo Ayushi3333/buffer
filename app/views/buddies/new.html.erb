@@ -1,16 +1,16 @@
 <div class="container">
   <h2 class="text-center my-5">Become a buddy</h2>
   <div class="row d-flex justify-content-center my-5">
-  
+
     <div class="col-8">
         <div class="w-50 m-auto">
           <%= simple_form_for(@buddy) do |f| %>
             <%= f.input :name %>
             <%= f.input :description %>
+            <%= f.input :address  %>
             <%= f.input :price_cents, label: "Rate" %>
-            <%= f.input :photo, as: :file %>
-            <%= f.input :tags, as: :check_boxes, collection: ["Diplomatic", 'Shredded', 'Possessive', 'Motherly', 'Comforting', 'Tough love', 'Social', 'Memory', 'Designated driver', 'Wing Man' ], input_html: { multiple: true } %>
-
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <%= f.input :tags, as: :check_boxes, collection: ["Diplomatic", 'Shredded', 'Possessive', 'Motherly', ' Comforting', 'Tough love', 'Social', 'Memory', 'Designated driver', 'Wing Man' ], input_html: { multiple: true } %>
             <%= f.submit 'Create your profile', class: 'btn btn-flat' %>
           <% end %>
         </div>
