@@ -16,12 +16,6 @@ module ApplicationHelper
     end
   end
 
-  def tag_method(buddy)
-    buddy.tags.each do |tag|
-
-    end
-  end
-
   def display_tag(tag)
     case tag
     when "Diplomatic"
