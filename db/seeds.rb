@@ -19,7 +19,7 @@ user = User.create!({
     address: Faker::Address.full_address,
     price_cents: rand(10..50)
     )
-  photo = []
+    photos = []
     photo = URI.open('https://picsum.photos/200/300')
     photo_1 = URI.open('https://picsum.photos/200/300')
     photo_2 = URI.open('https://picsum.photos/200/300')
