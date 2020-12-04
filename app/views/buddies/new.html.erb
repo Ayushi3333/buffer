@@ -10,7 +10,7 @@
             <%= f.input :address  %>
             <%= f.input :price_cents, label: "Rate" %>
             <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.input :tags, as: :check_boxes, collection: ["Diplomatic", 'Shredded', 'Possessive', 'Motherly', 'Comforting', 'Tough love', 'Social', 'Memory', 'Designated driver', 'Wing Man' ], input_html: { multiple: true } %>
+            <%= f.input :tags, as: :check_boxes, input_html: { multiple: true, class: "tag-selector" }, item_wrapper_class: 'tag-item', collection: ["Diplomatic", 'Shredded', 'Possessive', 'Motherly', 'Comforting', 'Tough love', 'Social', 'Memory', 'Designated driver', 'Wing Man' ]%>
             <%= f.submit 'Create your profile', class: 'btn btn-flat' %>
           <% end %>
         </div>
