@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-12">
       <div>
-        <%= link_to "< Back to buddy", buddy_path(@booking.buddy) %>
-        <h2>You're hanging out with: <span><%= @booking.buddy.name %></span></h2>
-        <h4>Booked by: <%= @booking.user.email %></h4>
+        <%= link_to "< Back to buddy", buddy_path(@booking.buddy) %> | 
+        <%= link_to "Manage bookings", buddy_bookings_path(@booking.buddy.id) %>
+        <h2>You're hanging out with <span><%= @booking.buddy.name %></span></h2>
+        <h3>Booked by <%= @booking.user.email %></h3>
       </div>
       <%= cl_image_tag @booking.buddy.photos.first.key, crop: :fill, class: 'w-100 rounded' %>
       <div class="d-flex justify-content-between">

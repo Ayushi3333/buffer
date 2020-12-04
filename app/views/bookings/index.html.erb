@@ -3,16 +3,19 @@
       <div class="d-flex flex-wrap justify-content-center">
         <% @bookings.each do |booking| %>
           <div class="card-product w-75 m-3">
-            <%= show_buddy_photo(@buddy) %>
+            <%= show_buddy_photo(booking.buddy) %>
             <div class="card-product-info px-2 w-100 m-2">
-              <%= link_to @buddy.name, buddy_path(@buddy), class: 'h5 text-primary' %>
+              <%= link_to booking.buddy.name, buddy_path(booking.buddy), class: 'h5 text-primary' %>
               <p class="text-secondary">Booked from <%= booking.start_date %> - <%= booking.end_date %></p>
               <div class="price">
-                <p><%= @buddy.price_cents %>€</p>
+                <p><%= booking.buddy.price_cents %>€</p>
               </div>
+              <p><%= booking.status %></p>
               <div class="d-flex justify-content-start m-2">
-                <a class="btn btn-flat m-2" href="">Accept booking</a>
-                <a class="btn btn-flat m-2" href="">Reject booking</a>
+                <% if booking.status != "Accepted!" %>
+                  <%= link_to  "Accept Booking", accepted_path(booking.id), method: :get, data: { confirm: "Are you sure?" }, class: "btn btn-flat m-2" %>
+                <% end %>
+                <%= link_to  "Reject Booking", booking_path(booking.id, booking.buddy.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat m-2" %>
               </div>
             </div>
           </div>
