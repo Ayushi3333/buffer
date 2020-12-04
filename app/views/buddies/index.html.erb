@@ -1,9 +1,9 @@
 
 <div class="container-fluid">
-  <div class="col-12 my-5">
+  <div class="col-12 my-3 text-center">
     <h2>List of buddies</h2>
   </div>
-  <div class="w-100 m-auto d-flex justify-content-center py-5">
+  <div class="w-100 m-auto d-flex justify-content-center py-4">
        <div class="d-flex">
         <%= form_tag(buddies_path, method: :get, class: 'd-flex') do %>
           <%= text_field_tag(:search, params[:search], class: 'form-control') %>
@@ -42,7 +42,6 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map-box w-50">
     </div>
   </div>
-    
 </div>
 
 

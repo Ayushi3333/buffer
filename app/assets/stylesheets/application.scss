@@ -13,3 +13,26 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.date-box {
+  margin-right: 10px;
+  border-radius: 7px;
+  background-color: $babypink;
+}
+
+.hanging-box {
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 7px;
+  background-color: $white;
+}
+
+.charge-box {
+  margin-left: 10px;
+  border-radius: 7px;
+  background-color: $white;
+}
+
+.total-align {
+  padding-top: 60px;
+}
