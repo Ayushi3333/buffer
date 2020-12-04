@@ -2,29 +2,29 @@
   <div class="row">
     <div class="col-12">
       <div>
-        <%= link_to "Back to buddy", buddy_path(@booking.buddy) %>
-        <h2>You're hanging out with <span><%= @booking.buddy.name %></span></h2>
-        <h3>Booked by <%= @booking.user.email %></h3>
+        <%= link_to "< Back to buddy", buddy_path(@booking.buddy) %>
+        <h2>You're hanging out with: <span><%= @booking.buddy.name %></span></h2>
+        <h4>Booked by: <%= @booking.user.email %></h4>
       </div>
       <%= cl_image_tag @booking.buddy.photos.first.key, crop: :fill, class: 'w-100 rounded' %>
       <div class="d-flex justify-content-between">
 
         <div class="col-6 p-0">
 
-          <div class="d-flex justify-content-around align-items-center my-5 border rounded">
+          <div class="d-flex date-box justify-content-around align-items-center mt-5 pt-3">
             <div>
-              <h2>From</h2>
+              <h3>From:</h3>
               <p><%= @booking.start_date %></p>
             </div>
             <i class="fas fa-chevron-right"></i>
             <div>
-              <h2>To</h2>
+              <h3>To:</h3>
               <p><%= @booking.end_date %></p>
             </div>
           </div>
 
-          <div class="p-3 border">
-            <h1 class="border-bottom">Hanging out with <%= @booking.buddy.name %></h1>
+          <div class="p-3 hanging-box">
+            <h3 class="border-bottom">Hanging out with: <%= @booking.buddy.name %></h3>
             <% @booking.buddy.tags.each do |tag| %>
               <span class="badge badge-primary mr-1"><%= tag %></span>
               <p><%= display_tag(tag) %></p>
@@ -33,9 +33,9 @@
 
         </div>
 
-        <div class="col-6 mt-5  p-0">
-          <div class=" p-2 border rounded">
-            <h1>Charges</h1>
+        <div class="col-6 mt-5 p-0 charge-box">
+          <div class=" p-2">
+            <h3 class="pt-2">Charges</h3>
             <div class="d-flex justify-content-between p-2 align-items-center">
             <% days = (@booking.end_date - @booking.start_date).to_i %>
               <p><%= @booking.buddy.price_cents %> x <%= days %></p>
@@ -43,21 +43,21 @@
             </div>
             <div class="d-flex justify-content-between p-2 align-items-center">
               <p>Buffer's fee</p>
-              <% fee = (@booking.buddy.price_cents * days) * 0.05 %>
+              <% fee = ((@booking.buddy.price_cents * days) * 0.05).floor(0) %>
               <p>€<%= fee %></p>
             </div>
             <div class="d-flex justify-content-between p-2 align-items-center">
-              <% tax = (@booking.buddy.price_cents * days) * 0.21 %>
+              <% tax = ((@booking.buddy.price_cents * days) * 0.21).floor(0) %>
               <p>Taxes</p>
               <p>€<%= tax %></p>
             </div>
-            <div class="d-flex justify-content-between p-2 align-items-center">
+            <div class="d-flex justify-content-between p-2 pb-4 align-items-center border-bottom">
               <p>Discount</p>
               <p>€0</p>
             </div>
-            <div class="d-flex justify-content-between p-2 border-top align-items-center">
-              <h1>Total</h1>
-              <p>€<%= (@booking.buddy.price_cents * days) + tax + fee %></p>
+            <div class="d-flex total-align justify-content-between align-items-center">
+              <h3>Total</h3>
+              <p>€<%= ((@booking.buddy.price_cents * days) + tax + fee).floor(0) %></p>
             </div>
           </div>
           
