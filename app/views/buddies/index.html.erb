@@ -17,13 +17,13 @@
         <% @buddies.each do |buddy| %>
           <div class="card-product w-75 m-3">
             <%= show_buddy_photo(buddy) %>
-            <div class="card-product-info px-2 w-100">
+            <div class="card-product-info px-3 w-100">
               <%= link_to buddy.name, buddy_path(buddy), class: 'h5 text-secondary' %>
               <p class="w-100"><%= buddy.description %></p>
               <div class="d-flex justify-content-between">
-                <div class="d-flex justify-content-between flex-wrap align-items-end">
+                <div class="d-flex justify-content-start flex-wrap align-items-end">
                   <% buddy.tags.each do |tag| %>
-                    <h6><span class="badge badge-secondary mx-1"><%= tag %></span></h6>
+                    <h6><span class="badge badge-secondary mr-1"><%= tag %></span></h6>
                   <% end %>
                 </div>
                 <div class="price">
@@ -39,7 +39,7 @@
     <div id="map"
       style="width: 100%; height: 600px;"
       data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map-box">
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map-box w-50">
     </div>
   </div>
     
