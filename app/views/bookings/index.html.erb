@@ -1,5 +1,22 @@
 <div class="container">
-  <% @bookings.each do |booking| %>
-    <h3><%= booking.start_date %></h3> - <h3><%= booking.end_date %></h3>
-  <% end %>
+  <div class="card-box d-flex card">
+      <div class="d-flex flex-wrap justify-content-center">
+        <% @bookings.each do |booking| %>
+          <div class="card-product w-75 m-3">
+            <%= show_buddy_photo(@buddy) %>
+            <div class="card-product-info px-2 w-100 m-2">
+              <%= link_to @buddy.name, buddy_path(@buddy), class: 'h5 text-primary' %>
+              <p class="text-secondary">Booked from <%= booking.start_date %> - <%= booking.end_date %></p>
+              <div class="price">
+                <p><%= @buddy.price_cents %>€</p>
+              </div>
+              <div class="d-flex justify-content-start m-2">
+                <a class="btn btn-flat m-2" href="">Accept booking</a>
+                <a class="btn btn-flat m-2" href="">Reject booking</a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
 </div>
