@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-12">
       <div>
-        <%= link_to "Back to buddy", buddy_path(@booking.buddy) %>
+        <%= link_to "Back to buddy", buddy_path(@booking.buddy) %> | 
+        <%= link_to "Manage bookings", buddy_bookings_path(@booking.buddy.id) %>
         <h2>You're hanging out with <span><%= @booking.buddy.name %></span></h2>
         <h3>Booked by <%= @booking.user.email %></h3>
       </div>
@@ -43,7 +44,7 @@
             </div>
             <div class="d-flex justify-content-between p-2 align-items-center">
               <p>Buffer's fee</p>
-              <% fee = (@booking.buddy.price_cents * days) * 0.05 %>
+              <% fee = ((@booking.buddy.price_cents * days) * 0.05).floor(2) %>
               <p>€<%= fee %></p>
             </div>
             <div class="d-flex justify-content-between p-2 align-items-center">

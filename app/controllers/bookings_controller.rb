@@ -27,7 +27,22 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:buddy_id])
+  end
+
+  def destroy
     @booking = Booking.find(params[:id])
+    @buddy = Buddy.find(@booking.buddy.id)
+    @booking.destroy
+    redirect_to buddy_bookings_path(@buddy.id)
+  end
+
+  def accepted
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = 'Accepted!'
+    @booking.save
+    flash[:notice] = "You accepted the booking...!"
+    redirect_to buddy_bookings_path(@booking.id)
   end
 
   private
