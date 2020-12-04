@@ -11,7 +11,7 @@
       </div>
       <div class="booking-box" id="booking-round">
       <%= @booking.buddy.name %>
-      <%= cl_image_tag @booking.buddy.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @booking.buddy.photos.first.key, height: 300, width: 400, crop: :fill %>
       <h3>Price details</h3>
       <p>Total amount</p>
        <%= link_to '´Confirm', buddy_checkout_path(@booking) %>
