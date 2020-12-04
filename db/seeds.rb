@@ -23,9 +23,9 @@ addresses = ['Barcelona, Spain', 'Berlin, Germany', 'Madrid, Spain', 'Paris, Fra
     )
   photos = []
 
-    photo = URI.open('https://picsum.photos/200/300')
-    photo_1 = URI.open('https://picsum.photos/200/300')
-    photo_2 = URI.open('https://picsum.photos/200/300')
+    photo = URI.open('https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+    photo_1 = URI.open('https://images.unsplash.com/photo-1558507334-57300f59f0bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+    photo_2 = URI.open('https://images.unsplash.com/photo-1542623024-a797a755b8d0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
     photos << photo
     photos << photo_1
     photos << photo_2
