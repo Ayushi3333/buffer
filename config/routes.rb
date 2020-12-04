@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :buddies do
-    get 'bookings/checkout', to: "bookings#checkout", as: :checkout
-    
+    get 'bookings/checkout', to: "bookings#checkout", as: :checkout   
     resources :bookings, only: [:new, :create, :index, :show ]
 end
 resources :bookings, only: [:destroy]

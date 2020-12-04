@@ -22,6 +22,7 @@ addresses = ['Barcelona, Spain', 'Berlin, Germany', 'Madrid, Spain', 'Paris, Fra
     price_cents: rand(10..50)
     )
   photos = []
+
     photo = URI.open('https://picsum.photos/200/300')
     photo_1 = URI.open('https://picsum.photos/200/300')
     photo_2 = URI.open('https://picsum.photos/200/300')

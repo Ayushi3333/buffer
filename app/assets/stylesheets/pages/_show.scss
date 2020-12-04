@@ -1,7 +1,8 @@
 .description-box {
   flex-grow: 1;
   background-color: white;
-  padding: 20px;
+  padding: 20px 60px;
+  padding-top: 60px;
   margin-right: 10px;
 }
 
@@ -35,3 +36,9 @@
 .text-center {
   border-radius: 7px;
 }
+
+.spacing-box {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
