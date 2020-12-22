@@ -1,0 +1,50 @@
+<div class="container">
+  
+  <div class="container text-center">
+    <h2>List of buddies</h2>
+  </div>
+  <div class="row">
+    <div class="w-100 m-auto d-flex justify-content-center py-4">
+       <div class="d-flex">
+        <%= form_tag(buddies_path, method: :get, class: 'd-flex') do %>
+          <%= text_field_tag(:search, params[:search], class: 'form-control') %>
+          <%= submit_tag ("Search"), class: "ml-1 search-button btn btn-primary" %>
+        <% end %>
+      </div>
+  </div>
+  </div>
+  
+  <div class="main-box d-flex">
+    <div class="card-box d-flex card">
+      <div class="d-flex flex-wrap justify-content-center">
+        <% @buddies.each do |buddy| %>
+          <div class="card-product w-75 m-3">
+            <%= show_buddy_photo(buddy) %>
+            <div class="card-product-info px-3 w-100">
+              <%= link_to buddy.name, buddy_path(buddy), class: 'h5 text-secondary' %>
+              <p class="w-100"><%= buddy.description %></p>
+              <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-start flex-wrap align-items-end">
+                  <% buddy.tags.each do |tag| %>
+                    <h6><span class="badge badge-secondary mr-1"><%= tag %></span></h6>
+                  <% end %>
+                </div>
+                <div class="price">
+                  <p><%= buddy.price_cents %>€</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%# MapBox %>
+    <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map-box w-50">
+    </div>
+  </div>
+</div>
+
+
