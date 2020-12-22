@@ -38,8 +38,9 @@
           <p class="text-secondary"><%= display_tag(tag)  %></p>
         </div>
         <% end %>
-
+        <p><%= link_to 'Contact buddy', new_buddy_message_path(@buddy.id) %></p>
     </div>
+    
     <div class="booking-box" id="booking-round">
       <div class="card text-center">
        <h1 class="pt-3"><%=  @buddy.price_cents %> €</h1>
