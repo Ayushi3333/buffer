@@ -3,22 +3,23 @@
 @import "buddies_index";
 @import "show";
 
-
-
-.main-box {
-  flex-grow: 1;
-  background-color: white;
-
-}
-
 .mapboxgl-popup-content img {
   object-fit: cover;
 }
 
 #map {
-  height: 100vh;
+  height: 100%;
   position: sticky;
   top: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.mapboxgl-canvas-container{
+  width: 90vw;
+}
+.mapboxgl-canvas{
+  width: 90vw !important;
+  margin: auto;
 }
 
 .tag-item {
