@@ -19,6 +19,7 @@ class BuddiesController < ApplicationController
         lat: @buddy.latitude,
         lng: @buddy.longitude
       }]
+    @review = Review.new
   end
 
   def new
