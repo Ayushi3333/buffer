@@ -18,7 +18,7 @@
     <div class="sub-container" data-map-toggler-target="main">
       <div class="buddies-container" data-map-toggler-target="buddyView">
         <% @buddies.each do |buddy| %>
-          <div class="card-product">
+          <div class="card-product" id="index-card">
             <%= show_buddy_photo(buddy) %>
             <div class="card-product-info px-3">
               <%= link_to buddy.name, buddy_path(buddy), class: 'h5 text-secondary' %>
