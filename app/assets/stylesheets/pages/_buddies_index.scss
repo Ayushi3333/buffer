@@ -1,3 +1,46 @@
-.index-main-container {
-    height: 85vh;
+@media only screen and (min-width: 300px){
+    .main-container{
+        width: 100%;
+        margin: auto;
+    }
+    .row-container{
+        display: block;
+    }
+    .button-container{
+        max-width: 50%;
+        text-align: center;
+        margin: 1em auto;
+    }
+    .buddies-container{
+        display: block;
+    }
+    .map-container{
+        display: none;
+    }
+}
+@media only screen and (min-width: 576px){
+    .main-container{
+        width: 90%;
+    }
+}
+@media only screen and (min-width: 768px){
+    .main-container{
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 992px){
+    .button-container{
+        display: none;
+    }
+    .sub-container{
+        margin-top: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .map-container, .buddies-container{
+        display: inline-block;
+        width: 48%;
+        
+    }
 }

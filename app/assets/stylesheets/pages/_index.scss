@@ -10,17 +10,18 @@
 #map {
   height: 100%;
   position: sticky;
-  top: 0;
-  border-radius: 10px;
+  top: 70px;
+  border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 .mapboxgl-canvas-container{
   width: 90vw;
-}
-.mapboxgl-canvas{
-  width: 90vw !important;
   margin: auto;
 }
+.mapboxgl-canvas{
+  width: 100vw !important;
+}
+
 
 .tag-item {
   display: inline-block;

@@ -1,29 +1,29 @@
-<div class="container" data-controller="map-toggler">
-  <div class="row">
+<div class="main-container" data-controller="map-toggler">
+  <div class="row-container">
     <h1>Buddies in your area!</h1>
-    <div class="d-flex justify-content-between w-75 m-auto">
+    <div class="form-container">
       <%= form_tag(buddies_path, method: :get, class: 'd-flex') do %>
         <%= text_field_tag(:search, params[:search], class: 'form-control') %>
         <%= submit_tag ("Search"), class: "ml-1 search-button btn btn-primary" %>
       <% end %>
     </div>
-    <div class="text-center container" data-action="click->map-toggler#toggle" id="toggleButton">
+    <div class="button-container" data-action="click->map-toggler#toggle" id="toggleButton">
       <p data-map-toggler-target="toggleButton" data-action="click->show-map#initMapbox" class="btn btn-primary text-center mt-1">
         View map
         <i class="fas fa-map-marked-alt ml-2"></i>
       </p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="col-12 col-lg-6" data-map-toggler-target="buddyView">
+  <div class="row-container">
+    <div class="sub-container" data-map-toggler-target="main">
+      <div class="buddies-container" data-map-toggler-target="buddyView">
         <% @buddies.each do |buddy| %>
           <div class="card-product">
             <%= show_buddy_photo(buddy) %>
-            <div class="card-product-info px-3 w-100">
+            <div class="card-product-info px-3">
               <%= link_to buddy.name, buddy_path(buddy), class: 'h5 text-secondary' %>
               <p class="w-100"><%= buddy.description %></p>
-              <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-between mt-5">
                 <div class="d-flex justify-content-start flex-wrap align-items-end">
                   <% buddy.tags.each do |tag| %>
                     <h6><span class="badge badge-secondary mr-1"><%= tag %></span></h6>
@@ -37,10 +37,11 @@
           </div>
         <% end %>
       </div>
-      <div class="col-12 col-lg-5 d-none" data-map-toggler-target="mapView">
+      <div class="map-container" data-map-toggler-target="mapView" id="map-container">
         <div id="map"
           style="width: 100%; height: 600px;"
           data-markers="<%= @markers.to_json %>"
+          data-map-toggler-target="map"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
