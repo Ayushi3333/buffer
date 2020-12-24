@@ -19,6 +19,8 @@ class BuddiesController < ApplicationController
         lat: @buddy.latitude,
         lng: @buddy.longitude
       }]
+    @review = Review.new
+    @chatroom = Chatroom.find_by(name: @buddy.name)
   end
 
   def new
@@ -27,6 +29,7 @@ class BuddiesController < ApplicationController
 
   def create
     @buddy = Buddy.new(buddies_params)
+    @chatroom = Chatroom.create(name: @buddy.name)
     @buddy.user = current_user
     if @buddy.save
       redirect_to buddy_path(@buddy)
