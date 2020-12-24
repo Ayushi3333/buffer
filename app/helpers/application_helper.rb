@@ -2,7 +2,7 @@ module ApplicationHelper
   def show_buddy_photo(buddy)
     photo = buddy.photos.first
       if photo
-        cl_image_tag photo.key, :height => 300, :class => "card-img-top"
+        cl_image_tag photo.key, :height => 300
       else
         image_tag('placeholder.jpg')
       end
@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def show_buddy_photo_small(buddy)
     if buddy.photos.first
-       cl_image_tag buddy.photos.first.key, :width => 150, :height => 150, :crop => "scale", :class => "card-img-top"
+       cl_image_tag buddy.photos.first.key, :width => 150, :height => 150, :crop => "scale"
     else
       image_tag('placeholder.jpg')
     end

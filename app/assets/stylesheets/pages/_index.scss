@@ -13,13 +13,22 @@
 
 .mapboxgl-popup-content img {
   object-fit: cover;
+  height: 100px;
+  width: 100%;
 }
 
 #map {
-  height: 100vh;
+  height: 100%;
   position: sticky;
-  top: 0;
+  top: 70px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.mapboxgl-canvas{
+  width: 100vw !important;
+}
+
 
 .tag-item {
   display: inline-block;

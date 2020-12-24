@@ -1,19 +1,28 @@
-<div class="container">
+<div class="main-container">
   <%= link_to  "< Back", buddy_path %>
   <h1 class="pt-4">Confirm and pay</h1>
-  <div class="show-body d-flex justify-content-between mt-5">
-      <div class="description-box" id="round-border">
-        <h2 class="spacing-box border-bottom">Your booking</h2>
-         <h4 class="spacing-box">Dates:</h4>
-         <p><%= @booking.start_date %> - <%= @booking.end_date %></p>
-         <h4 class="spacing-box">Booked for:</h4>
-         <p><%= @booking.user.email %></p>
-      </div>
-      <div class="booking-box" id="booking-round">
-      <%= cl_image_tag @booking.buddy.photos.first.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @booking.buddy.photos.first.key, crop: :fill %>
+  <div class="sub-container">
+    <div id="booking-container">
       <h3 class="spacing-box border-bottom">Price details</h3>
       <h4>Buddy rate: <%= @booking.buddy.price_cents  %> €</h4>
-       <%= link_to 'Confirm', buddy_checkout_path(@booking) %>
+      <h4>Your buddy: <%= @booking.buddy.name %></h4>
+      <% @booking.buddy.tags.each do |tag| %>
+        <div class="mb-2">
+          <h6><span class="badge badge-secondary mr-1"><%= tag %></span></h6>
+          <p class="text-secondary"><%= display_tag(tag)  %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="description-box">
+      <div class="" id="round-border">
+        <h2 class="border-bottom">Your booking</h2>
+        <h4>Dates:</h4>
+        <p><%= @booking.start_date %> - <%= @booking.end_date %></p>
+        <h4>Booked for:</h4>
+        <p><%= @booking.user.email %></p>
+        <%= link_to 'Confirm', buddy_checkout_path(@booking), class: 'btn btn-primary confirm-button' %>
       </div>
+    </div>
   </div>
 </div>
