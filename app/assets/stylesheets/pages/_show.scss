@@ -24,12 +24,17 @@
     display: block;
   }
   
+  #booking-round {
+    margin-top: 1em;
+    padding: 0;
+  }
+
   .carousel-image {
-    height: 500px;
+    height: 270px;
     background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 5px;
-  }  
+    background-size: contain;
+    object-fit: cover;
+  }
 }
 @media only screen and (min-width: 992px){
   .sub-container{
@@ -39,10 +44,30 @@
       align-items: flex-start;
   }
   .booking-container{
-    width: 58%;
+    width: 40%;
   }
   .description-box{
-    width: 38%;
+    width: 60%;
     padding: 10px 20px;
+  }
+  .carousel-image {
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+  }
+
+  #booking-round {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .show-body {
+    width: 100%;
+  }
+
+  .main-booking-container {
+    display: block;
+    width: 70%;
   }
 }

@@ -34,7 +34,7 @@ addresses = ['Barcelona, Spain', 'Berlin, Germany', 'Madrid, Spain', 'Paris, Fra
       buddies.photos.attach(io: photo, filename: 'buddy-avatar.png')
     end
     buddies.save!
-    
+    Chatroom.create!(name: buddies.name)
     puts "Finish seeding and created #{User.count} user & #{Buddy.count} buddies"
   end
 

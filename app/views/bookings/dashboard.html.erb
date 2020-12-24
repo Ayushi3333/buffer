@@ -13,9 +13,9 @@
               <p><%= booking.status %></p>
               <div class="d-flex justify-content-start">
                 <% if booking.status != "Accepted!" %>
-                  <%= link_to  "Accept Booking", accepted_path(booking.id, booking.buddy.id), method: :get, data: { confirm: "Are you sure?" }, class: "btn btn-flat mr-2" %>
+                  <%= link_to  "Accept Booking", accepted_path(booking.id), method: :get, data: { confirm: "Are you sure?" }, class: "btn btn-flat mr-2" %>
                 <% end %>
-                <%= link_to  "Reject Booking", booking_path(booking.id, booking.buddy.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat mr-2" %>
+                <%= link_to  "Reject Booking", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat mr-2" %>
               </div>
             </div>
           </div>
