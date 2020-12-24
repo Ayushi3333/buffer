@@ -1,26 +1,28 @@
 class MessagesController < ApplicationController
-
-  def index
-    @messages = Message.find(params[:buddy_id]).all
-  end
-
-  def show
-    @message = Message.find(params[:id])
-  end
-
   def new
     @message = Message.new
   end
 
   def create
-    @buddy = Buddy.find(params[:buddy_id])
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    @buddy = Buddy.find_by(name: @chatroom.name)
     @message = Message.new(message_params)
-    @message.user = current_user
+    @message.chatroom = @chatroom
     @message.buddy = @buddy
+    @message.user = current_user
     if @message.save
-      redirect_to buddy_message_path(@buddy)
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        {
+          content: @message.content,
+          user: @message.user.email,
+          user_id: @message.user.id,
+          date: @message.created_at.strftime("%a %b %e at %l:%M%p"),
+          message_id: @message.id
+        }
+      )
     else
-      render 'messages/show'
+      render "chatrooms/show"
     end
   end
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 resources :bookings, only: [:destroy]
 resources :chatrooms, only: :show do
-  resources :messages, only: :create
+  resources :messages, only: [:new, :create]
 end
 get 'bookings/:booking_id/accepted', to: "bookings#accepted", as: :accepted
 end

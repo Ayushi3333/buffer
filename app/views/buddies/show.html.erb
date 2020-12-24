@@ -38,7 +38,7 @@
           <p class="text-secondary"><%= display_tag(tag)  %></p>
         </div>
         <% end %>
-        <p><%= link_to 'Contact buddy', new_buddy_message_path(@buddy.id) %></p>
+        <p><%= link_to 'Contact buddy', chatroom_path(@chatroom) %></p>
     </div>
     
     <div class="booking-box" id="booking-round">

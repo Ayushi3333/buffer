@@ -26,7 +26,7 @@ require("channels")
 import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
 import "../plugins/flatpickr";
-
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 
 // Internal imports, e.g:
@@ -43,4 +43,5 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initChatroomCable();
 })
