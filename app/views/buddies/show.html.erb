@@ -17,9 +17,9 @@
   </a>
 </div>
 
-<div class="main-booking-container">
-  <div class="show-body row d-flex justify-content-between mt-5">
-    <div class="description-box col-12 col-lg-5" id="round-border">
+<div class="main-container">
+  <div class="show-body row d-flex justify-content-between mt-3">
+    <div class="description-box col-12 col-lg-6" id="round-border">
       <h2><strong><%= @buddy.name %></strong> </h2>
       <h6 class="border-bottom rounded text-secondary" style="line-height: 25px;"> <%=@buddy.description  %> </h6>
       <h5 class="pt-1 pb-2"><strong>My specialities: </strong></h5>
@@ -31,14 +31,15 @@
       <% end %>
         <p><%= link_to 'Contact buddy', chatroom_path(@chatroom) %></p>
     </div>
-    <div class="col-12 col-lg-5" id="booking-round">
-      <div class="border bg-white m-0 text-center">
-       <h1 class="pt-3"><%=  @buddy.price_cents %> €</h1>
-        <div class="card-header">
-          Available
+    <div class="col-12 col-lg-6" id="booking-round">
+      <div class="booking-form bg-white m-0 text-center">
+        <div class="bg-white">
+          <h2><%= @buddy.name %> is available</h2>
         </div>
-        <div class="card-body">
-         <div class="form-inputs">
+        <h3 class="pt-3">Hourly rate: <%=  @buddy.price_cents %> €</h3>
+        
+        <div class="card-body mt-5">
+         <div class="form-inputs mt-5">
            <%= simple_form_for [@buddy, @booking] do |f| %>
               <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
               <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
@@ -50,12 +51,17 @@
         </div>
       </div>
     </div>
-    <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="col-12">
+    <div class="map-container" id="map-show-container" data-controller="show-map">
+      <div id="map" data-show-map-target="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
+    
   </div>
 </div>
-<div class="container">
- <div id="reviews" class="mt-5 col-12 col-lg-5">
+<div class="col-12 col-lg-8 m-auto">
+ <div id="reviews" class="mt-5 ">
     <h3>Reviews</h3>
     <% if @buddy.reviews.blank? %>
       Be the first to leave a review for <%= @buddy.name %>
@@ -85,5 +91,4 @@
       <%= f.button :submit, class:"btn btn-primary mb-3" %>
     <% end %>
   </div>
-   <%= link_to "< Go back to results" , buddies_path %>
  </div>

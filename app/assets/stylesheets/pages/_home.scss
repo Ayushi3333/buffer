@@ -1,23 +1,20 @@
 // Specific CSS for your home-page
 @media only screen and (min-width: 300px){
   .banner {
+    height: calc(100vh - 66px);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 150px 0;
     background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1545128485-c400e7702796?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
   }
   
   .banner h1 {
-    padding: 20px;
+    position: absolute;
+    top: 20%;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     font-size: 55px;
     font-weight: bold;
-  }
-
-  .banner-text{
-    height: 400px;
   }
   
   .btn-flat {
@@ -40,7 +37,18 @@
     width: 55px;
     padding-left: 20px;
   }
-  
+  #banner-inner-container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .form-container{
+    position: absolute;
+    width: 90%;
+    margin: 0 auto;
+    bottom: 10%;
+  }
   .search-form-control {
     position: relative;
   }
@@ -67,7 +75,8 @@
   }
   
   .form-control {
-    padding: 0.375rem 1.75rem;
+    padding: 0.375rem 1rem;
+    max-width: 1000px;
   }
   
   
@@ -115,4 +124,9 @@
     padding: 16px;
   }
   
+}
+@media only screen and (min-width: 900px){
+  .form-container{
+    bottom: 40%;
+  }
 }

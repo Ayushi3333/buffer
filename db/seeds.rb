@@ -2,7 +2,13 @@ require 'faker'
 require 'open-uri'
 
 Buddy.destroy_all
+p 'Destroyed all buddies!'
 User.destroy_all
+p 'Destroyed all users!'
+Chatroom.destroy_all
+p 'Destroyed all chats!'
+Review.destroy_all
+p 'Destroyed all reviews!'
 
 user = User.create!({
   email: "test@email.com",
@@ -14,7 +20,7 @@ addresses = ['Barcelona, Spain', 'Berlin, Germany', 'Madrid, Spain', 'Paris, Fra
 5.times do
   buddies = Buddy.new(
     name: Faker::Artist.name,
-    description: Faker::Quote.famous_last_words,
+    description: Faker::Lorem.paragraphs(number: 2),
     availability: true,
     tags: tags.sample(3),
     user_id: user.id,
@@ -35,6 +41,6 @@ addresses = ['Barcelona, Spain', 'Berlin, Germany', 'Madrid, Spain', 'Paris, Fra
     end
     buddies.save!
     Chatroom.create!(name: buddies.name)
-    puts "Finish seeding and created #{User.count} user & #{Buddy.count} buddies"
   end
+  puts "Finish seeding and created #{User.count} user & #{Buddy.count} buddies"
 
