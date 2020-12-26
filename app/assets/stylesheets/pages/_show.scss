@@ -5,6 +5,10 @@
   .confirm-button{
     width: 100%
   }
+  #map-show-container{
+    display: block;
+    height: 300px;
+  }
   
   .border-bottom {
     padding-bottom: 10px;
@@ -30,9 +34,9 @@
   }
 
   .carousel-image {
-    height: 270px;
+    height: 30vh;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     object-fit: cover;
   }
 }
@@ -42,9 +46,6 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-  }
-  .booking-container{
-    width: 40%;
   }
   .description-box{
     width: 60%;
@@ -60,8 +61,12 @@
   #booking-round {
     margin-top: 0;
     padding: 0;
+    height: 650px;
+    width: 40%;
   }
-
+  .booking-form{
+    height: 100%;
+  }
   .show-body {
     width: 100%;
   }
@@ -69,5 +74,8 @@
   .main-booking-container {
     display: block;
     width: 70%;
+  }
+  #map-show-container{
+    width: 100%;
   }
 }

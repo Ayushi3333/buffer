@@ -1,44 +1,77 @@
-.card-product {
-  overflow: hidden;
-  height: 170px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  width: 100%;
-  border-radius: 5px;
-}
-.card-product-info{
-  width: 100%;
-}
-#index-card img {
-  height: 100%;
-  width: 150px;
-  object-fit: cover;
-}
+@media only screen and (min-width: 300px){
+  .card-product {
+    overflow: hidden;
+    height: 220px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+  }
+  .index-card{
+    overflow: hidden;
+    height: 200px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1em;
+    border-radius: 5px;
+  }
+  .card-product-info, .index-card-info{
+    width: 100%;
+  }
 
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
+  #buddies-container img {
+    height: 100%;
+    width: 150px;
+    object-fit: cover;
+  }
 
-.card-product p {
-  font-size: 16px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
+  #dashboard-container img {
+    height: 100%;
+    width: 150px;
+    object-fit: cover;
+  }
+  .index-card-info{
+    padding: 10px 15px;
+  }
+  .index-card-info p{
+    font-size: 12px;
+  }
+  .index-card-info h2{
+    font-size: 16px;
+  }
+  .card-product h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
 
-.card-product .card-product-infos {
-  padding: 16px;
-}
+  .card-product p {
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
 
-.badge-secondary {
-  background-color: #ff047d;
-}
+  .card-product .card-product-infos {
+    padding: 16px;
+  }
 
-.card {
-  max-width: 700px;
+  .badge-secondary {
+    background-color: #ff047d;
+  }
+
+  .card {
+    max-width: 700px;
+  }
+}
+@media only screen and (min-width: 600px){
+  .index-card{
+    height: 170px;
+  }
 }
