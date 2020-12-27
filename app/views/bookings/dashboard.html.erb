@@ -1,21 +1,25 @@
-<div class="col-12 col-lg-6 p-0" id="dashboard-container">
-  <% @bookings.each do |booking| %>
-    <div class="index-card">
-      <%= show_buddy_photo(booking.buddy) %>
-      <div class="index-card-info p-2">
-        <%= link_to booking.buddy.name, buddy_path(booking.buddy), class: 'h5 text-primary' %>
-        <p class="text-secondary">Booked from <%= booking.start_date %> - <%= booking.end_date %></p>
-        <div class="price">
-          <p><%= booking.buddy.price_cents %>€</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6 p-0 m-auto" id="dashboard-container">
+      <% @bookings.each do |booking| %>
+        <div class="index-card">
+          <%= show_buddy_photo(booking.buddy) %>
+          <div class="index-card-info p-2">
+            <%= link_to booking.buddy.name, buddy_path(booking.buddy), class: 'h5 text-primary' %>
+            <p class="text-secondary">Booked from <%= booking.start_date %> - <%= booking.end_date %></p>
+            <div class="price">
+              <p><%= booking.buddy.price_cents %>€</p>
+            </div>
+            <p><%= booking.status %></p>
+            <div class="d-flex justify-content-start">
+              <% if booking.status != "Accepted!" %>
+                <%= link_to  "Accept", accepted_path(booking.id), method: :get, data: { confirm: "Are you sure?" }, class: "btn btn-primary rounded mr-2" %>
+              <% end %>
+              <%= link_to  "Reject", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary rounded" %>
+            </div>
+          </div>
         </div>
-        <p><%= booking.status %></p>
-        <div class="d-flex justify-content-start">
-          <% if booking.status != "Accepted!" %>
-            <%= link_to  "Accept", accepted_path(booking.id), method: :get, data: { confirm: "Are you sure?" }, class: "btn btn-primary rounded mr-2" %>
-          <% end %>
-          <%= link_to  "Reject", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary rounded" %>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

@@ -57,38 +57,41 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    
   </div>
-</div>
-<div class="col-12 col-lg-8 m-auto">
- <div id="reviews" class="mt-5 ">
-    <h3>Reviews</h3>
-    <% if @buddy.reviews.blank? %>
-      Be the first to leave a review for <%= @buddy.name %>
-    <% else %>
-      <%= pluralize @buddy.reviews.size, "review" %>
-      <% @buddy.reviews.each do |review| %>
-        <div class="card bg-light text-dark mb-2 pl-2 py-2 w-100 rounded">
-          <p class="mb-1"><strong><%= review.content %></strong></p>
-          <div class="d-flex justify-content-between align-items-end">
-            <div>
-              <p class="mb-1 rounded">
-                <% review.rating.times do %>
-                  <i class="fas fa-star text-primary"></i>
-                <% end %>
-              </p>
-            </div>
-            <div>
-              <p class="mr-2 mb-0">- <%= review.user.email %></p>
-            </div>
-          </div>
+  <div class="main-container w-100 mx-0 mt-5">
+      <h3>Reviews</h3>
+      <div id="reviews" class="row d-flex justify-content-between">
+        <div class="col-12 col-lg-7">
+          <%= simple_form_for([ @buddy, @review ]) do |f| %>
+            <%= f.input :content, as: :text %>
+            <%= f.input :rating, collection: 1..5 %>
+            <%= f.button :submit, class:"btn btn-primary mb-3" %>
+          <% end %>
         </div>
-      <% end %>
-    <% end %>
-    <%= simple_form_for([ @buddy, @review ]) do |f| %>
-      <%= f.input :content, as: :text %>
-      <%= f.input :rating, collection: 1..5 %>
-      <%= f.button :submit, class:"btn btn-primary mb-3" %>
-    <% end %>
-  </div>
- </div>
+        <div class="col-12 col-lg-5">
+          <% if @buddy.reviews.blank? %>
+            Be the first to leave a review for <%= @buddy.name %>
+          <% else %>
+            <%= pluralize @buddy.reviews.size, "review" %>
+            <% @buddy.reviews.each do |review| %>
+              <div class="bg-light text-dark mb-2 rounded">
+                <p class="mb-1"><strong><%= review.content %></strong></p>
+                <div class="d-flex justify-content-between align-items-end">
+                  <div>
+                    <p class="mb-1 rounded">
+                      <% review.rating.times do %>
+                        <i class="fas fa-star text-primary"></i>
+                      <% end %>
+                    </p>
+                  </div>
+                  <div>
+                    <p class="pr-2 mb-0">- <%= review.user.email %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

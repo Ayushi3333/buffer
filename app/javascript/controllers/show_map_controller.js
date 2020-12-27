@@ -16,9 +16,9 @@ export default class extends Controller {
           style: 'mapbox://styles/mapbox/streets-v11',
       });
       this.addMarkers();
-      // document.querySelector('#toggleButton').addEventListener('click', () => {
-      //   this.map.resize();
-      // })
+      document.querySelector('#toggleButton').addEventListener('click', () => {
+        this.map.resize();
+      })
         
       
     } catch (error) {

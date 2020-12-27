@@ -51,6 +51,7 @@
   }
   .search-form-control {
     position: relative;
+    max-width: 1000px;
   }
   
   .search-form-control .btn {
@@ -126,7 +127,22 @@
   
 }
 @media only screen and (min-width: 900px){
+  .banner{
+    height: calc(75vh - 66px);
+  }
   .form-container{
     bottom: 40%;
+  }
+  .search-form-control .btn {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    right: 8px;
+    border-radius: 50%;
+  }
+}
+@media only screen and (max-height: 650px){
+  .form-container{
+    bottom: 20%;
   }
 }
