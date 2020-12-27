@@ -11,16 +11,20 @@
     <a class="mt-2 mr-3 buddy-info" href="/buddies/new">Become a buddy</a>
      <li class="nav-itemdropdown">
         <div class="dropdown-menu dropdown-menu-right p-3 text-center" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/users/sign_in">Login</a>
-          <a class="dropdown-item" href="/users/sign_up">Signup</a>
-          <div class="dropdown-divider"></div>
+        <% if user_signed_in? %>
           <%= link_to "Manage bookings", dashboard_path %>
           <a class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "ml-3" %></a>
+        <% else %>  
+          <a class="dropdown-item" href="/users/sign_in">Login</a>
+          <a class="dropdown-item" href="/users/sign_up">Signup</a>
+        <% end %> 
         </div>
       </li>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <% if user_signed_in? %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Profile
         </a>
+      <% end %>
     </ul>
   </div>
 </nav>
