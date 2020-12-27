@@ -1,7 +1,7 @@
 <div class="container-fluid p-0">
   <%= cl_image_tag @booking.buddy.photos.first.key, crop: :fill, height: 500, class: 'w-100' %>
 </div>
-<div class="container bg-white">
+<div class="main-container bg-white">
   <div>
     <h2>You're hanging out with <span><%= @booking.buddy.name %></span></h2>
     <h3>Booked by <%= @booking.user.email %></h3>
