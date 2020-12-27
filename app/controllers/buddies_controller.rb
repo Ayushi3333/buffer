@@ -2,14 +2,29 @@ class BuddiesController < ApplicationController
   def index
     @buddies = Buddy.search(params[:search])
     @buddiesall = Buddy.all
-    @markers = @buddiesall.geocoded.map do |buddy|
+    if params[:query].present?
+      @markers = @buddiesall.near(params[:query]).geocoded.map do |buddy|
+        {
+          lat: buddy.latitude,
+          lng: buddy.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { buddy: buddy })
+        }
+      end
+    else
+      @markers = @buddiesall.geocoded.map do |buddy|
         {
           lat: buddy.latitude,
           lng: buddy.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { buddy: buddy }),
           image_url: helpers.asset_url("https://i.imgur.com/SUfRG3j.png")
-      }
+        }
       end
+    end
+    if params[:query].present?
+      @buddies = Buddy.near(params[:query])
+    else
+      @buddies = Buddy.all
+    end
   end
 
   def show
