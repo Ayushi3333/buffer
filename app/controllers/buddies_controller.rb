@@ -1,7 +1,7 @@
 class BuddiesController < ApplicationController
   def index
     @buddies = Buddy.search(params[:search])
-    @buddiesall = Buddy.all
+    @buddiesall = policy_scope(Buddy).all.order(created_at: :desc)
     if params[:query].present?
       @markers = @buddiesall.near(params[:query]).geocoded.map do |buddy|
         {
@@ -29,6 +29,7 @@ class BuddiesController < ApplicationController
 
   def show
     @buddy = Buddy.find(params[:id])
+    
     @booking = Booking.new
     @markers = [{
         lat: @buddy.latitude,
@@ -36,21 +37,48 @@ class BuddiesController < ApplicationController
       }]
     @review = Review.new
     @chatroom = Chatroom.find_by(name: @buddy.name)
+    authorize @buddy
   end
 
   def new
-    @buddy = Buddy.new
+      @buddy = Buddy.new
+      authorize @buddy
   end
 
   def create
     @buddy = Buddy.new(buddies_params)
     @chatroom = Chatroom.create(name: @buddy.name)
     @buddy.user = current_user
-    if @buddy.save
+    @buddy.user.is_buddy = true
+    @buddy.user.save!
+    # authorize @chartoom
+    authorize @buddy
+    if @buddy.save!
       redirect_to buddy_path(@buddy)
     else
       render :new
     end
+  end
+
+  def edit
+    @buddy = Buddy.find(params[:id])
+    authorize @buddy
+  end
+
+  def update
+    @buddy = Buddy.find(params[:id])
+    @buddy.update(buddies_params)
+    authorize @buddy
+    redirect_to buddy_path(@buddy)
+  end
+
+  def destroy
+    @buddy = Buddy.find(params[:id])
+    @buddy.destroy
+    @buddy.user.is_buddy = false
+    @buddy.user.save!
+    redirect_to root_path
+    authorize @buddy
   end
 
   private

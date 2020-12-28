@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
   get '/dashboard', to: 'bookings#dashboard'
@@ -9,9 +10,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :index, :show ]
     
   end
-resources :bookings, only: [:destroy]
-resources :chatrooms, only: :show do
-  resources :messages, only: [:new, :create]
+  resources :profiles, only: [:show, :edit, :update]
+  resources :bookings, only: [:destroy]
+  resources :chatrooms, only: :show do
+    resources :messages, only: [:new, :create]
 end
 end
 

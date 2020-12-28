@@ -7,12 +7,16 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav m-auto">
-    <a class="mt-2 mr-3 buddy-info" href="/buddies/new">Become a buddy</a>
-     <li class="nav-itemdropdown">
-        <div class="dropdown-menu dropdown-menu-right p-3 text-center" aria-labelledby="navbarDropdown">
+    <ul class="navbar-nav m-auto d-flex align-items-center">
+      <% if user_signed_in? %>
+        <% if !current_user.is_buddy %>
+          <a class="mt-2 mr-3 buddy-info" href="/buddies/new">Become a buddy</a>
+        <% end %>
+      <% end %>
+      <li class="nav-itemdropdown">
+        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
         <% if user_signed_in? %>
-          <%= link_to "Manage bookings", dashboard_path %>
+          <%= link_to "Profile", profile_path(@profile) %>
           <a class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "ml-3" %></a>
         <% else %>  
           <a class="dropdown-item" href="/users/sign_in">Login</a>
@@ -21,9 +25,15 @@
         </div>
       </li>
       <% if user_signed_in? %>
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Profile
-        </a>
+        <% if @profile.photo %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= cl_image_tag @profile.photo.key, crop: :fill, gravity: "face", class: 'profile-avatar' %></a>
+        <% else %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+        <% end %>
+      <% else %>
+        <a class="buddy-info mr-1" href="/users/sign_in">Login |</a>
+        
+        <a class="buddy-info ml-1" href="/users/sign_up"> Signup</a>
       <% end %>
     </ul>
   </div>
