@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
     else
       render 'buddies/show'
     end
+    authorize @review
   end
 
   private

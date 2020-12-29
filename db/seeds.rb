@@ -11,8 +11,11 @@ Review.destroy_all
 p 'Destroyed all reviews!'
 
 user = User.create!({
+  name: 'Testy Tester',
   email: "test@email.com",
-  password: "123456"
+  password: "123456",
+  admin: false,
+  is_buddy: false
 })
 tags = ["Diplomatic", 'Shredded', 'Possessive', 'Motherly', 'Comforting', 'Tough love', 'Social', 'Memory', 'Designated driver', 'Wing Man' ]
 addresses = ['Barcelona, Spain', 'Berlin, Germany', 'Madrid, Spain', 'Paris, France', 'London, United Kingdom']

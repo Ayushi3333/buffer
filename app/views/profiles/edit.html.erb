@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div>
+        <div class="pt-5">
+          <%= simple_form_for( @profile , remote: true) do |f| %>
+            <%= f.input :buddy_name, as: :string %>
+            <%= f.input :description, as: :text  %>
+            <%= f.input :photo, as: :file %>
+            <%= f.button :submit, class:"btn btn-primary mb-3" %>
+          <% end %>
+        </div>
+      </div> 
+    </div> 
+  </div>
+</div>

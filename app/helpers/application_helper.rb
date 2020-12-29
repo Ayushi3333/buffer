@@ -7,7 +7,7 @@ module ApplicationHelper
         image_tag('placeholder.jpg')
       end
   end
-
+  
   def show_buddy_photo_small(buddy)
     if buddy.photos.first
        cl_image_tag buddy.photos.first.key, :width => 150, :height => 150, :crop => "scale", :class => "index-card-img"

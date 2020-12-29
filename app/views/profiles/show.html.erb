@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="w-100 m-auto">
+      <div class="text-center profile-header">
+        <%= cl_image_tag @profile.photo.key, crop: :fill, gravity: "face", class: 'profile-img' %>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <h1 class="mr-2">Welcome <%= @profile.buddy_name.capitalize %></h1>
+        <%= link_to edit_profile_path(@profile) do %>
+          <h3 class="mr-2"><i class="fas fa-pencil-alt"></i></h3>
+        <% end %>
+        <%= link_to user_registration_path(@profile.user.id), method: :delete, data: { confirm: "Are you sure you want to delete your profile?" } do %>
+          <h3 class="mr-2"><i class="fas fa-trash-alt"></i></h3>
+        <% end %>
+      </div>
+      <div>
+        <h3>"<%= @profile.description %>"</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-between">
+      <div class="col-12 col-lg-6"> 
+        <h3>Bookings</h3> 
+        <% if @profile.user.bookings %>
+          <% @profile.bookings.each do |booking| %>
+            <div class="index-card">
+              <%= show_buddy_photo_small(booking.buddy) %>
+              <div class="index-card-info p-2">
+                <%= link_to booking.buddy.name, buddy_path(booking.buddy), class: 'h5 text-primary' %>
+                <p class="text-secondary">Booked from <%= booking.start_date %> - <%= booking.end_date %></p>
+                <div class="price">
+                  <p><%= booking.buddy.price_cents %>€</p>
+                </div>
+                <p><%= booking.status %></p>
+                
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <h3>You have not booked Buddies yet.</h3>
+        <% end %>
+      </div>
+      <div class="col-12 col-lg-6 pr-0">
+        <h3>Booking request</h3>
+        <% if @profile.user.bookings %>
+          <% @requests.each do |booking| %>
+            <div class="index-card">
+              <%= show_buddy_photo_small(booking.buddy) %>
+              <div class="index-card-info">
+                <%= link_to booking.buddy.name, buddy_path(booking.buddy), class: 'h5 text-primary' %>
+                <p class="text-secondary">Booked from <%= booking.start_date %> - <%= booking.end_date %></p>
+                <div class="price">
+                  <p><%= booking.buddy.price_cents %>€</p>
+                </div>
+                <p><%= booking.status %></p>
+                <div class="d-flex justify-content-start">
+                  <% if booking.status != "Accepted!" %>
+                    <%= link_to  "Accept", accepted_path(booking.id), method: :get, data: { confirm: "Are you sure?" }, class: "btn btn-primary rounded mr-2" %>
+                  <% end %>
+                  <%= link_to  "Reject", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary rounded" %>
+                </div>
+              </div>
+            </div>              
+          <% end %>
+        <% else %>
+          <h3>You have not booked Buddies yet</h3>
+        <% end %>
+      </div>
+    </div>
+</div>
