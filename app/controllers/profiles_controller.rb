@@ -2,7 +2,12 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @bookings = @profile.user.bookings
-    @requests = Buddy.find_by(user_id: @profile.user.id).bookings
+    @buddy_find = Buddy.find_by(user_id: @profile.user.id)
+    if @buddy_find
+      @requests = Buddy.find_by(user_id: @profile.user.id).bookings
+    else
+      @requests = []
+    end
     # @buddy = Buddy.find(user_id: @profile.user)
 
     authorize @profile

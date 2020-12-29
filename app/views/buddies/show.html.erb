@@ -29,15 +29,17 @@
           <p class="text-secondary"><%= display_tag(tag)  %></p>
         </div>
       <% end %>
+      <div class="d-flex justify-content-start">
         <% if user_signed_in? %>
-          <p><%= link_to 'Contact buddy', chatroom_path(@chatroom) %></p>
+          <p class="mr-3"><%= link_to 'Contact buddy', chatroom_path(@chatroom) %></p>
         <% end %>
         <% if @buddy.user == current_user %>
-          <p><%= link_to 'Delete buddy', buddy_path(@buddy), method: 'delete' %></p>
+          <p class="mr-3"><%= link_to 'Delete buddy', buddy_path(@buddy), method: 'delete' %></p>
         <% end %>
         <% if @buddy.user == current_user %>
           <p><%= link_to 'Update buddy', edit_buddy_path(@buddy), method: 'get' %></p>
         <% end %>
+      </div>
     </div>
     <div class="col-12 col-lg-6" id="booking-round">
       <div class="booking-form bg-white m-0 text-center">
@@ -49,8 +51,10 @@
         <div class="card-body mt-5">
          <div class="form-inputs mt-5">
            <%= simple_form_for [@buddy, @booking] do |f| %>
-              <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-              <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker",  style: "
+    border: 1px solid black;" } %>
+              <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker",  style: "
+    border: 1px solid black;" } %>
          </div>
          <div class="form-actions">
                <%= f.button :submit, class: "btn btn-flat" %>

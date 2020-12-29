@@ -16,7 +16,7 @@ class User < ApplicationRecord
   def create_profile
     # default_photo = 'https://i.imgur.com/SUfRG3j.png'
     @user = User.last
-    @profile = Profile.new(buddy_name: "User#{@user.id}", description: '',user_id: @user.id  )
+    @profile = Profile.new(buddy_name: "User#{@user.id}", description: '',user_id: @user.id)
     @profile.save
   end
 end

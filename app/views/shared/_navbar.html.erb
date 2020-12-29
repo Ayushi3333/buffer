@@ -16,7 +16,9 @@
       <li class="nav-itemdropdown">
         <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
         <% if user_signed_in? %>
-          <%= link_to "Profile", profile_path(@profile) %>
+          <% if !@profile.nil? %>
+            <%= link_to "Profile", profile_path(@profile) %>
+          <% end %>
           <a class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "ml-3" %></a>
         <% else %>  
           <a class="dropdown-item" href="/users/sign_in">Login</a>
@@ -25,8 +27,8 @@
         </div>
       </li>
       <% if user_signed_in? %>
-        <% if @profile.photo %>
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= cl_image_tag @profile.photo.key, crop: :fill, gravity: "face", class: 'profile-avatar' %></a>
+        <% if !@profile.nil? %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= cl_image_tag @profile.photo_url, crop: :fill, gravity: "face", class: 'profile-avatar' %></a>
         <% else %>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
         <% end %>
